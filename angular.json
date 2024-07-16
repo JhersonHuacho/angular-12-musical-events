@@ -122,9 +122,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-musical-events-modulos"
+  "defaultProject": "angular-musical-events-modulos",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
