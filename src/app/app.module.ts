@@ -4,11 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { HeaderComponent } from './commons/components/container/components/header/header.component';
-import { FooterComponent } from './commons/components/container/components/footer/footer.component';
-import { ContainerComponent } from './commons/components/container/container.component';
-import { CardEventComponent } from './commons/components/card-event/card-event.component';
-import { CardMenusComponent } from './commons/components/card-menus/card-menus.component';
 import { BuyPageComponent } from './pages/buy-page/buy-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -18,15 +13,12 @@ import { RecoveryPasswordPageComponent } from './pages/recovery-password-page/re
 import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { MyAccountComponent } from './pages/my-account/my-account.component';
+import { ContainerModule } from './commons/components/container/container.module';
+import { SharedComponentsModule } from './commons/shared/shared-components.module';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		HeaderComponent,
-		FooterComponent,
-		ContainerComponent,
-		CardEventComponent,
-		CardMenusComponent,
 		BuyPageComponent,
 		HomePageComponent,
 		LoginPageComponent,
@@ -37,7 +29,7 @@ import { MyAccountComponent } from './pages/my-account/my-account.component';
 		MaintenanceComponent,
 		MyAccountComponent
 	],
-	imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule],
+	imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule, ContainerModule, SharedComponentsModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })
