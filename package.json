@@ -9,7 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "format": "prettier --write \"./src/**/*.{ts,json,html}\"",
-    "lint-format": "npm run format &&  ng lint --fix"
+    "lint-format": "npm run format &&  ng lint --fix",
+    "mock": "ng serve --configuration mock",
+    "build-mock": "ng build --configuration mock"
   },
   "private": true,
   "dependencies": {

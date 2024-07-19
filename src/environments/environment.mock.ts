@@ -1,4 +1,4 @@
 export const environment = {
-	production: true,
+	production: false,
 	host: 'https://api.example.mocks/api'
 };
