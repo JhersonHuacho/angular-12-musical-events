@@ -13,6 +13,7 @@ import { MyAccountComponent } from './pages/my-account/my-account.component';
 import { ContainerModule } from './commons/components/container/container.module';
 import { SharedComponentsModule } from './commons/shared/shared-components.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		HttpClientModule,
 		MatButtonModule,
 		ContainerModule,
 		SharedComponentsModule,

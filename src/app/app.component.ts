@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DemoService } from './commons/services/demo.service';
 
 @Component({
 	selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'angular-musical-events-modulos hola dede';
+
+	constructor(private _demoService: DemoService) {}
 }
