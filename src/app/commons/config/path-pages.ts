@@ -57,3 +57,10 @@ export const PATH_MAINTENANCE_PAGES = {
 		onlyPath: maintenanceReportPage
 	}
 };
+
+export const PATH_NOT_FOUND_PAGE = {
+	'not-found': {
+		withSlash: '/not-found',
+		onlyPath: 'not-found'
+	}
+};
