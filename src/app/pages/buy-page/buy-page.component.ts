@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+type StatusBuy = 'INFO' | 'BUY' | 'VOUCHER';
+
 @Component({
 	selector: 'app-buy-page',
 	templateUrl: './buy-page.component.html',
@@ -17,5 +19,3 @@ export class BuyPageComponent implements OnInit {
 		this.statusBuy = statusBuy;
 	}
 }
-
-type StatusBuy = 'INFO' | 'BUY' | 'VOUCHER';

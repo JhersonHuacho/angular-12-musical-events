@@ -2,7 +2,7 @@
 <div class="container">
 	<app-card-event></app-card-event>
 
-	<mat-card class="container__card custom-card flex-column">
+	<mat-card class="container__card custom-card flex-column" *ngIf="statusBuy === 'INFO'">
 		<div>
 			<!-- {{ currentDate | date: 'short' }} -->
 			{{ currentDate | date: 'dd/MM/yyyy' }}
@@ -23,7 +23,7 @@
 		</div>
 	</mat-card>
 
-	<mat-card class="container__card-buy custom-card flex-column">
+	<mat-card class="container__card-buy custom-card flex-column" *ngIf="statusBuy === 'BUY'">
 		<div class="header">
 			<span class="title">Bon Jovi En concierto</span>
 			<div class="header__price">
@@ -44,7 +44,7 @@
 		<button mat-raised-button color="accent">PAGAR</button>
 	</mat-card>
 
-	<mat-card class="card-buy-total custom-card flex-column">
+	<mat-card class="card-buy-total custom-card flex-column" *ngIf="statusBuy === 'VOUCHER'">
 		<div>
 			<span class="title">VOUCHER</span>
 
