@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ICardEvent } from '../../models/components.interface';
 
 @Component({
 	selector: 'app-card-event',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./card-event.component.scss']
 })
 export class CardEventComponent implements OnInit {
+	@Input() event?: ICardEvent;
+
 	isSelect = true;
+
 	constructor() {}
 
 	ngOnInit(): void {}
