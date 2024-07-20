@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./card-event.component.scss']
 })
 export class CardEventComponent implements OnInit {
+	isSelect = true;
 	constructor() {}
 
 	ngOnInit(): void {}

@@ -1,1 +1,14 @@
-<p>home-page works!</p>
+<div class="filter">
+	<mat-form-field appearance="outline">
+		<mat-label>{{ 'Género' | uppercase }}</mat-label>
+		<mat-select>
+			<mat-option *ngFor="let item of listGenres">{{ item.name }}</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+	<h4>Selecciona tu género musical favorito</h4>
+</div>
+
+<div class="cards">
+	<app-card-event *ngFor="let item of listEvents"></app-card-event>
+</div>
