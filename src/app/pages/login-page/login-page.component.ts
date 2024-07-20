@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATH_MAINTENANCE_PAGES, PATHS_AUTH_PAGES } from 'src/app/commons/config/path-pages';
+import { ChannelHeaderService } from 'src/app/commons/services/local/channel-header.service';
 
 @Component({
 	selector: 'app-login-page',
@@ -13,10 +14,14 @@ export class LoginPageComponent {
 	title = 'INICIO DE SESISIÓN';
 	disabledButton = false;
 
-	constructor(private _router: Router) {}
+	constructor(
+		private _router: Router,
+		private _channelHeaderService: ChannelHeaderService
+	) {}
 
 	clickLogin(): void {
 		console.log('clickLogin');
+		this._channelHeaderService.showUser(true);
 		this._router.navigateByUrl(PATH_MAINTENANCE_PAGES.withSlash);
 	}
 }
