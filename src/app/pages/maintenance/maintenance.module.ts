@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { CardMenusComponent } from 'src/app/commons/components/card-menus/card-menus.component';
 
 @NgModule({
-	declarations: [MaintenanceComponent, CardMenusComponent],
+	declarations: [MaintenanceComponent],
 	imports: [MaintenanceRoutingModule, SharedComponentsModule, RouterModule]
 })
 export class MaintenanceModule {}

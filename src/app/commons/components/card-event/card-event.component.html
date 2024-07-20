@@ -1,4 +1,9 @@
-<mat-card *ngIf="event" class="card flex-column custom-card" [class]="{ 'card--selected': isSelect }">
+<mat-card
+	*ngIf="event"
+	class="card flex-column custom-card"
+	[class]="{ 'card--selected': isSelect }"
+	(click)="clickEvent()"
+>
 	<div class="card__header">
 		<span class="title">{{ event?.date }}</span>
 		<div class="subtitle">

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ICardMenu } from '../../models/components.interface';
 
 @Component({
-  selector: 'app-card-menus',
-  templateUrl: './card-menus.component.html',
-  styleUrls: ['./card-menus.component.scss']
+	selector: 'app-card-menus',
+	templateUrl: './card-menus.component.html',
+	styleUrls: ['./card-menus.component.scss']
 })
-export class CardMenusComponent implements OnInit {
+export class CardMenusComponent {
+	@Input() menus: ICardMenu[] = [];
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit(): void {
-  }
-
+	clickMenu(menu: ICardMenu): void {}
 }

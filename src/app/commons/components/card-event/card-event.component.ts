@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICardEvent } from '../../models/components.interface';
 
 @Component({
@@ -6,12 +6,16 @@ import { ICardEvent } from '../../models/components.interface';
 	templateUrl: './card-event.component.html',
 	styleUrls: ['./card-event.component.scss']
 })
-export class CardEventComponent implements OnInit {
+export class CardEventComponent {
 	@Input() event?: ICardEvent;
+	@Output() clickCard = new EventEmitter<ICardEvent>();
 
-	isSelect = true;
+	isSelect = false;
 
 	constructor() {}
 
-	ngOnInit(): void {}
+	clickEvent(): void {
+		this.isSelect = !this.isSelect;
+		this.clickCard.emit(this.event);
+	}
 }
