@@ -29,6 +29,10 @@ const routes: Routes = [
 			import('./pages/restore-password-page/restore-password-page.module').then((m) => m.RestorePasswordPageModule)
 	},
 	{
+		path: `${PATHS_AUTH_PAGES.registerPage.onlyPath}`, // PATH PARAM
+		loadChildren: () => import('./pages/register-page/register-page.module').then((m) => m.RegisterPageModule)
+	},
+	{
 		path: PATH_NOT_FOUND_PAGE['not-found'].onlyPath,
 		component: NotFoundPageComponent
 	},

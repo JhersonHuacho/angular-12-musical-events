@@ -4,15 +4,15 @@
 		<mat-card class="container__card custom-card flex-column">
 			<h4>{{ title }}</h4>
 
-			<form class="content flex-column" autocomplete="off">
+			<form [formGroup]="formGroup" class="content flex-column" autocomplete="off">
 				<mat-form-field appearance="outline">
 					<mat-label>E-mail</mat-label>
-					<input matInput type="email" />
+					<input matInput type="email" formControlName="email" />
 				</mat-form-field>
 
 				<mat-form-field appearance="outline">
 					<mat-label>Contraseña</mat-label>
-					<input matInput type="password" />
+					<input matInput type="password" formControlName="password" />
 				</mat-form-field>
 
 				<div class="content__login flex-column">
