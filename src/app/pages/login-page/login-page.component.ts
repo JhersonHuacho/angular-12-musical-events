@@ -9,6 +9,7 @@ import { UserApiService } from 'src/app/commons/services/api/user/user-api.servi
 import { ChannelHeaderService } from 'src/app/commons/services/local/channel-header.service';
 import { LocalStorageService } from 'src/app/commons/services/local/storage/local-storage.service';
 import { SessionStorageService } from 'src/app/commons/services/local/storage/storage.service';
+import { KEYS_WEB_STORAGE } from 'src/app/commons/util/enums';
 
 @Component({
 	selector: 'app-login-page',
@@ -84,7 +85,7 @@ export class LoginPageComponent {
 			isAdmin: response.roles[0] === 'Administrador'
 		};
 
-		this._sessionStorageService.setItem('datauser', dataUser);
+		this._sessionStorageService.setItem(KEYS_WEB_STORAGE.DATA_USER, dataUser);
 		this.redirectUser(dataUser.isAdmin);
 	}
 
