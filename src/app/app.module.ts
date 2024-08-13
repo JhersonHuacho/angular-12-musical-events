@@ -10,12 +10,14 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { MyAccountComponent } from './pages/my-account/my-account.component';
 import { ContainerModule } from './commons/components/container/container.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import LocaleEsPe from '@angular/common/locales/es-PE';
 import LocaleEsAR from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
 import { SharedFormCompleteModule } from './commons/shared/shared-form-complete.module';
 import { SharedComponentsModule } from './commons/shared/shared-components.module';
+import { ApiInterceptor } from './commons/interceptors/api.interceptor';
+import { ErrorApiInterceptor } from './commons/interceptors/error-api.interceptor';
 
 registerLocaleData(LocaleEsPe);
 registerLocaleData(LocaleEsAR);
@@ -34,7 +36,9 @@ registerLocaleData(LocaleEsAR);
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'es-PE' },
-		{ provide: LOCALE_ID, useValue: 'es-AR' }
+		{ provide: LOCALE_ID, useValue: 'es-AR' },
+		{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+		{ provide: HTTP_INTERCEPTORS, useClass: ErrorApiInterceptor, multi: true }
 	],
 	bootstrap: [AppComponent]
 })

@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { IResponseHome } from './home-api.interface';
 import { ResponseHome } from './home-api.class';
 
-const URL_HOME = environment.host + '/home';
+export const URL_HOME = environment.host + '/home';
 
 @Injectable({
 	providedIn: 'root'
