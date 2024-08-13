@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { PATH_MAINTENANCE_PAGES, PATH_MY_ACCOUNT_PAGES, PATHS_AUTH_PAGES } from 'src/app/commons/config/path-pages';
 import { IDataUser } from 'src/app/commons/models/data-user';
 import { IResponseLogin } from 'src/app/commons/services/api/user/user-api-model.interface';
@@ -52,16 +53,27 @@ export class LoginPageComponent {
 			// this._userApiService.login(this.formGroup.value).subscribe(
 			const { email, password } = this.formGroup.getRawValue();
 
-			this._userApiService.login({ user: email, password }).subscribe({
-				next: (response) => {
-					console.log('response', response);
-					if (response.success) {
-						// localStorage.setItem('token', response.token);
-						//this._localStorageService.setItem('token', response.token);
-						this.saveDataUserAndRedirect(response);
+			this._userApiService
+				.login({ user: email, password })
+				.pipe(
+					finalize(() => {
+						console.log('finalize: Cerrando comunicación con el servidor. Observable finalziado.');
+						this.disabledButton = false;
+					})
+				)
+				.subscribe({
+					next: (response) => {
+						console.log('response', response);
+						if (response.success) {
+							// localStorage.setItem('token', response.token);
+							//this._localStorageService.setItem('token', response.token);
+							this.saveDataUserAndRedirect(response);
+						}
+					},
+					error: (error) => {
+						console.log('error', error);
 					}
-				}
-			});
+				});
 		}
 	}
 

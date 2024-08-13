@@ -10,6 +10,7 @@ import {
 	IResponseLogin
 } from './user-api-model.interface';
 import { IResponse } from '../api-models-base.interface';
+import { catchError } from 'rxjs/operators';
 
 const URL_USER = environment.host + '/Users';
 
@@ -28,7 +29,12 @@ export class UserApiService {
 	constructor(private _httpClient: HttpClient) {}
 
 	login(request: IRequestLogin): Observable<IResponseLogin> {
-		return this._httpClient.post<IResponseLogin>(URL_LOGIN, request);
+		return this._httpClient.post<IResponseLogin>(URL_LOGIN, request).pipe(
+			catchError((error) => {
+				console.log('Error desde el mismo servicio login', error);
+				throw error;
+			})
+		);
 	}
 
 	register(request: IRequestRegister): Observable<IResponse<string>> {
