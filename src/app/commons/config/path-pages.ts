@@ -58,6 +58,21 @@ export const PATH_MAINTENANCE_PAGES = {
 	}
 };
 
+//#region  PATH MY ACCOUNT
+const myAccountPage = 'my-account';
+const myAccountChangePasswordPage = 'change-password';
+
+export const PATH_MY_ACCOUNT_PAGES = {
+	withSlash: `/${myAccountPage}`,
+	onlyPath: myAccountPage,
+
+	changePassword: {
+		withSlash: `/${myAccountPage}/${myAccountChangePasswordPage}`,
+		onlyPath: myAccountChangePasswordPage
+	}
+};
+//#endregion
+
 export const PATH_NOT_FOUND_PAGE = {
 	'not-found': {
 		withSlash: '/not-found',
