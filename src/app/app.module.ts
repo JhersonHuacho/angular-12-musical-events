@@ -18,6 +18,13 @@ import { SharedFormCompleteModule } from './commons/shared/shared-form-complete.
 import { SharedComponentsModule } from './commons/shared/shared-components.module';
 import { ApiInterceptor } from './commons/interceptors/api.interceptor';
 import { ErrorApiInterceptor } from './commons/interceptors/error-api.interceptor';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import {
+	ConfirmBoxConfigModule,
+	DialogConfigModule,
+	NgxAwesomePopupModule,
+	ToastNotificationConfigModule
+} from '@costlydeveloper/ngx-awesome-popup';
 
 registerLocaleData(LocaleEsPe);
 registerLocaleData(LocaleEsAR);
@@ -32,7 +39,12 @@ registerLocaleData(LocaleEsAR);
 		ContainerModule,
 		SharedComponentsModule,
 		SharedFormCompleteModule,
-		AppRoutingModule
+		AppRoutingModule,
+		NgxUiLoaderModule,
+		NgxAwesomePopupModule.forRoot(),
+		DialogConfigModule.forRoot(),
+		ConfirmBoxConfigModule.forRoot(),
+		ToastNotificationConfigModule.forRoot()
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'es-PE' },

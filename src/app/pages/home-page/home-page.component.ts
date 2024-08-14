@@ -23,6 +23,10 @@ export class HomePageComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.loadHome();
+	}
+
+	private loadHome() {
 		this._homeService.getHome().subscribe({
 			next: (response) => {
 				console.log(response);
