@@ -9,6 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { CardEventComponent } from '../components/card-event/card-event.component';
 
 @NgModule({
 	exports: [

@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MaintenanceEventsPageComponent } from './maintenance-events-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { SharedFormCompleteModule } from 'src/app/commons/shared/shared-form-complete.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
 
-
+export const routes: Routes = [{ path: '', component: MaintenanceEventsPageComponent }];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+	declarations: [MaintenanceEventsPageComponent],
+	imports: [
+		RouterModule.forChild(routes),
+		MatTableModule,
+		MatMenuModule,
+		MatPaginatorModule,
+		MatTabsModule,
+		SharedFormCompleteModule
+	]
 })
-export class MaintenanceEventsPageModule { }
+export class MaintenanceEventsPageModule {}

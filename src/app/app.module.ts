@@ -15,7 +15,6 @@ import LocaleEsPe from '@angular/common/locales/es-PE';
 import LocaleEsAR from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
 import { SharedFormCompleteModule } from './commons/shared/shared-form-complete.module';
-import { SharedComponentsModule } from './commons/shared/shared-components.module';
 import { ApiInterceptor } from './commons/interceptors/api.interceptor';
 import { ErrorApiInterceptor } from './commons/interceptors/error-api.interceptor';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
@@ -30,14 +29,13 @@ registerLocaleData(LocaleEsPe);
 registerLocaleData(LocaleEsAR);
 
 @NgModule({
-	declarations: [AppComponent, BuyPageComponent, HomePageComponent, NotFoundPageComponent, MyAccountComponent],
+	declarations: [AppComponent, HomePageComponent],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
 		MatButtonModule,
 		ContainerModule,
-		SharedComponentsModule,
 		SharedFormCompleteModule,
 		AppRoutingModule,
 		NgxUiLoaderModule,

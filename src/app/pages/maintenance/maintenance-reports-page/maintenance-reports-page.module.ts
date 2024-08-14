@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { MaintenanceReportsPageComponent } from './maintenance-reports-page.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+	declarations: [MaintenanceReportsPageComponent],
+	imports: [CommonModule]
 })
-export class MaintenanceReportsPageModule { }
+export class MaintenanceReportsPageModule {}
