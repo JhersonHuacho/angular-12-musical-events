@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CardEventComponent } from 'src/app/commons/components/card-event/card-event.component';
+import { PATH_BUY_PAGES } from 'src/app/commons/config/path-pages';
 import { ICardEvent } from 'src/app/commons/models/components.interface';
 import { IHomeGenres } from 'src/app/commons/services/api/home/home-api.interface';
 import { HomeApiService } from 'src/app/commons/services/api/home/home-api.service';
@@ -16,8 +18,9 @@ export class HomePageComponent implements OnInit {
 	listEvents: ICardEvent[] = [];
 
 	constructor(
+		private _router: Router,
 		private _demoService: DemoService,
-		private _homeService: HomeApiService
+		private _homeApiService: HomeApiService
 	) {
 		console.log(_demoService.getMessages());
 	}
@@ -27,7 +30,7 @@ export class HomePageComponent implements OnInit {
 	}
 
 	private loadHome() {
-		this._homeService.getHome().subscribe({
+		this._homeApiService.getHome().subscribe({
 			next: (response) => {
 				console.log(response);
 				this.listGenres = response.genres;
@@ -36,7 +39,11 @@ export class HomePageComponent implements OnInit {
 		});
 	}
 
-	clickCardEvent(event: ICardEvent): void {
-		console.log(event);
+	// clickCard(event: ICardEvent): void {
+	// 	console.log(event);
+	// }
+
+	clickCard(event: ICardEvent): void {
+		void this._router.navigate([PATH_BUY_PAGES.buyPage.withSlash], { state: { event } });
 	}
 }

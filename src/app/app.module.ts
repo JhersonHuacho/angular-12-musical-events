@@ -1,13 +1,9 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { BuyPageComponent } from './pages/buy-page/buy-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { MyAccountComponent } from './pages/my-account/my-account.component';
 import { ContainerModule } from './commons/components/container/container.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -24,6 +20,7 @@ import {
 	NgxAwesomePopupModule,
 	ToastNotificationConfigModule
 } from '@costlydeveloper/ngx-awesome-popup';
+import { SharedComponentsModule } from './commons/shared/shared-components.module';
 
 registerLocaleData(LocaleEsPe);
 registerLocaleData(LocaleEsAR);
@@ -34,15 +31,16 @@ registerLocaleData(LocaleEsAR);
 		BrowserModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
-		MatButtonModule,
+		AppRoutingModule,
 		ContainerModule,
 		SharedFormCompleteModule,
-		AppRoutingModule,
+		SharedComponentsModule,
+		MatButtonModule,
 		NgxUiLoaderModule,
-		NgxAwesomePopupModule.forRoot(),
-		DialogConfigModule.forRoot(),
-		ConfirmBoxConfigModule.forRoot(),
-		ToastNotificationConfigModule.forRoot()
+		NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
+		DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
+		ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.
+		ToastNotificationConfigModule.forRoot() // Needed for instantiating toast notifications.
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'es-PE' },

@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
+import { DatePipe } from '@angular/common';
 
 export const routes: Routes = [{ path: '', component: MaintenanceEventsPageComponent }];
 
@@ -18,6 +19,7 @@ export const routes: Routes = [{ path: '', component: MaintenanceEventsPageCompo
 		MatPaginatorModule,
 		MatTabsModule,
 		SharedFormCompleteModule
-	]
+	],
+	providers: [DatePipe]
 })
 export class MaintenanceEventsPageModule {}

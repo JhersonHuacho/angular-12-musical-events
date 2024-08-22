@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import {
 	PATH_BUY_PAGES,
 	PATH_MAINTENANCE_PAGES,
@@ -9,8 +8,9 @@ import {
 	PATHS_AUTH_PAGES
 } from './commons/config/path-pages';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { AuthGuard } from './commons/guards/auth.guard';
 import { BuyGuard } from './commons/guards/buy.guard';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AuthGuard } from './commons/guards/auth.guard';
 
 const routes: Routes = [
 	{
